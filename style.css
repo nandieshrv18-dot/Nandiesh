@@ -1,0 +1,282 @@
+/* ================================
+   ROOT COLORS
+================================ */
+:root{
+  --bg:#0b1220;
+  --bg2:#0f1b2e;
+  --accent:#3b82f6;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Inter, sans-serif;
+  background:linear-gradient(120deg,var(--bg),#05070c);
+  color:var(--text);
+  scroll-behavior:smooth;
+}
+
+.container{width:90%;max-width:1200px;margin:auto}
+.narrow{max-width:850px}
+
+.section{padding:100px 0}
+.section.alt{background:var(--bg2)}
+
+
+/* ================================
+   TYPOGRAPHY
+================================ */
+h1{
+  font-size:48px;
+  font-weight:800;
+  text-shadow:0 4px 20px rgba(0,0,0,0.6);
+}
+
+h2{
+  font-size:28px;
+  margin-bottom:25px;
+  border-left:4px solid var(--accent);
+  padding-left:12px;
+}
+
+h3{font-size:18px;margin-bottom:10px}
+
+p{color:var(--muted);line-height:1.7}
+
+
+/* ================================
+   TOP BAR
+================================ */
+.topbar{
+  position:fixed;
+  width:100%;
+  z-index:10;
+  background:rgba(5,10,18,.7);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid #1f2937;
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+}
+
+.logo{font-weight:800}
+
+nav a{
+  color:var(--muted);
+  margin-left:18px;
+  text-decoration:none;
+  font-size:14px;
+  transition:.3s;
+}
+
+nav a:hover{color:white}
+
+
+/* ================================
+   HERO SECTION
+================================ */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+}
+
+/* background image */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("../images/hero-bg.jpg") center center / cover no-repeat;
+  filter:grayscale(20%) contrast(105%);
+  z-index:0;
+}
+
+/* dark overlay */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(5,10,18,0.75),
+    rgba(5,10,18,0.85)
+  );
+  z-index:1;
+}
+
+/* content above overlay */
+.hero-inner{
+  position:relative;
+  z-index:2;
+}
+
+/* subtitle */
+.tag{
+  margin-top:10px;
+  color:#d1d5db;
+}
+
+/* mini contact */
+.contact-mini{
+  margin-top:15px;
+  font-size:14px;
+  color:#cbd5e1;
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+.btn{
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:14px;
+  margin:5px;
+  transition:.3s;
+  border:1px solid transparent;
+}
+
+.btn.primary{
+  background:var(--accent);
+  color:white;
+}
+
+.btn.ghost{
+  border-color:#374151;
+  color:#d1d5db;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+
+/* ================================
+   GRID
+================================ */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+
+
+/* ================================
+   CARDS
+================================ */
+.card{
+  background:#0d1626;
+  padding:20px;
+  border-radius:10px;
+  border:1px solid #1f2937;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:var(--accent);
+}
+
+.card .img{
+  width:100%;
+  height:160px;
+  border-radius:8px;
+  object-fit:cover;
+  margin-bottom:15px;
+}
+
+.card.small .img{height:140px}
+
+.year{
+  display:block;
+  margin-top:10px;
+  color:var(--accent);
+  font-weight:600;
+}
+
+.mentor{margin-bottom:20px}
+
+
+/* ================================
+   PROJECT IMAGES
+================================ */
+.project-img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:15px;
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.card a:hover .project-img{
+  transform:scale(1.03);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+
+/* ================================
+   PROFILE PHOTO
+================================ */
+.profile-photo{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  object-fit:cover;
+  margin:25px auto 10px;
+  border:3px solid #1f2937;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+
+/* ================================
+   CONTACT
+================================ */
+.contact{text-align:center}
+.contact-actions{margin-top:15px}
+
+
+/* ================================
+   FOOTER
+================================ */
+footer{
+  text-align:center;
+  padding:25px;
+  border-top:1px solid #1f2937;
+  color:var(--muted);
+}
+
+
+/* ================================
+   ANIMATION
+================================ */
+.fade-up{
+  opacity:0;
+  transform:translateY(25px);
+  transition:all .8s ease;
+}
+
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
+}
